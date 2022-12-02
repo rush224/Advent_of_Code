@@ -1,15 +1,16 @@
 import sys
 import os
 
-#file_directory = r'C:\Users\rushe\Desktop\AoC2022'
-#os.chdir(file_directory)
+#Pulls source file from same location as executable and sets its to be a string
+with open(os.path.join(sys.path[0], "1_1.txt"), "r") as cal_list:	
+	temp = cal_list.read()		
 
 maxsum = 0    
 tempsum = 0
 
-with open("1_1.txt") as cal_list:
-    temp = cal_list.read()				
+#Changes source information from string to list by splitting with new line			
 lines = temp.split("\n")
+
 for count in lines:
     if count != '':
         x = int(count)
