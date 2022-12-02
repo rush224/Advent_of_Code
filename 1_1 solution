@@ -1,0 +1,20 @@
+import sys
+import os
+
+#file_directory = r'C:\Users\rushe\Desktop\AoC2022'
+#os.chdir(file_directory)
+
+maxsum = 0    
+tempsum = 0
+
+with open("1_1.txt") as cal_list:
+    temp = cal_list.read()				
+lines = temp.split("\n")
+for count in lines:
+    if count != '':
+        x = int(count)
+        tempsum += x
+    else:
+        maxsum = max(tempsum,maxsum)
+        tempsum = 0
+print(maxsum)
