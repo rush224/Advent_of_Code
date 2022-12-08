@@ -52,7 +52,6 @@ while c1 <= numr+1:                       #deleting orders content excepting mov
 c1 = 0
 
 for rows in orders:
-    c1 = orders.index(rows)
     c2 = 0
     dirs = orders[c1].split(" ")
     for element in dirs:
@@ -61,9 +60,15 @@ for rows in orders:
                 dirs.pop(i)
     dirs = list(map(int,dirs))
     while c2 < dirs[0]:                                         #dirs[0] is number of boxes
-        content[dirs[2]-1].append(content[dirs[1]-1][-1])      #dirs[1] is origin stack
-        content[dirs[1]-1].remove(content[dirs[1]-1][-1])        #dirs[2] is destination stack    
+        content[dirs[2]-1].append(content[dirs[1]-1][-(dirs[0]-c2)])      #dirs[1] is origin stack          dirs[2] is destination stack
         c2 += 1 
+    c2 = 0
+    while c2<dirs[0]:
+        content[dirs[1]-1].remove(content[dirs[1]-1][-1])
+        c2 += 1
+    c1 += 1
+
+
     
-for row in content:
-    print(row[0])
+# for row in content:
+    # print(row[-1])
