@@ -59,11 +59,11 @@ for rows in orders:
                 i = dirs.index(str(element))
                 dirs.pop(i)
     dirs = list(map(int,dirs))
-    while c2 < dirs[0]:                                         #dirs[0] is number of boxes
-        content[dirs[2]-1].append(content[dirs[1]-1][-(dirs[0]-c2)])      #dirs[1] is origin stack          dirs[2] is destination stack
+    while c2 < dirs[0]:                                                     #copies boxes from origin stack to destination
+        content[dirs[2]-1].append(content[dirs[1]-1][-(dirs[0]-c2)])        #dirs[0] is number of boxes // dirs[1] is origin stack // dirs[2] is destination stack
         c2 += 1 
     c2 = 0
-    while c2<dirs[0]:
+    while c2<dirs[0]:                                                       #removes boxes from origin stack
         content[dirs[1]-1].remove(content[dirs[1]-1][-1])
         c2 += 1
     c1 += 1
