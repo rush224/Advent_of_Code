@@ -64,11 +64,11 @@ for rows in orders:
         c2 += 1 
     c2 = 0
     while c2<dirs[0]:                                                       #removes boxes from origin stack
-        content[dirs[1]-1].remove(content[dirs[1]-1][-1])
+        del content[dirs[1]-1][-1]
         c2 += 1
     c1 += 1
 
 
     
-# for row in content:
-    # print(row[-1])
+for row in content:
+    print(row[-1])
